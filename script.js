@@ -411,7 +411,11 @@
     card.style.top = (i % 2 === 0 ? '10px' : '70px');
     card.style.setProperty('--rot', rand(-8, 8) + 'deg');
     card.style.animationDelay = (i * 0.3) + 's';
-    const img = document.createElement('img'); img.src = src; img.alt = 'Memory';
+    const img = document.createElement('img'); img.src = src;
+
+img.onerror = () => {
+    console.log("Image not found:", src);
+};; img.alt = 'Memory';
     card.appendChild(img);
     card.addEventListener('click', () => openLightbox(src));
     floatingWrap.appendChild(card);
