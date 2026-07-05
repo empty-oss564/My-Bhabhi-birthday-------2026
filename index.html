@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Happy Birthday, Bhabhi Ji — Neha Prajapati</title>
+
+<!-- Fonts: Playfair Display (headlines), Great Vibes (signature script), Poppins (body/UI) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================================================= -->
+<!-- PERSISTENT AMBIENT BACKGROUND (stars, glow orbs, fx layer)     -->
+<!-- ============================================================= -->
+<canvas id="bg-canvas"></canvas>
+<div class="glow-orb orb-a"></div>
+<div class="glow-orb orb-b"></div>
+<div id="fx-layer" aria-hidden="true"></div>
+
+<!-- ============================================================= -->
+<!-- SCENE 1 — OPENING GIFT                                         -->
+<!-- ============================================================= -->
+<section id="gift-screen">
+  <p class="gift-headline">A Special Surprise Awaits You ❤️</p>
+  <button class="gift-box-btn" id="giftBtn" aria-label="Open your birthday surprise">
+    <span class="gbx-glow"></span>
+    <span class="gbx-base"></span>
+    <span class="gbx-lid"></span>
+    <span class="gbx-ribbon-v"></span>
+    <span class="gbx-ribbon-h"></span>
+    <span class="gbx-bow">🎀</span>
+  </button>
+  <button class="glow-btn" id="openGiftLabel">🎁 Open Gift</button>
+</section>
+
+<!-- ============================================================= -->
+<!-- MAIN EXPERIENCE                                                -->
+<!-- ============================================================= -->
+<main id="site">
+
+  <!-- HERO REVEAL (continuation of Scene 1) -->
+  <section class="section" id="hero">
+    <h1 class="hero-title" id="heroTitle"></h1>
+    <p class="hero-name-script">(Neha Prajapati)</p>
+    <p class="hero-love">Made with Lots of Love ❤️<br>From Your Devar Ji</p>
+    <p class="hero-signature">Kundan Prajapati</p>
+    <div class="scroll-cue"><span>Scroll to begin the celebration</span><div class="scroll-cue-line"></div></div>
+  </section>
+
+  <!-- SCENE 2 — ANIMATED WISHES (7 wishes, one at a time, different animation each) -->
+  <section class="section reveal" id="wishesSection">
+    <p class="eyebrow">Seven Wishes, From the Heart</p>
+    <h2 class="title-glow">Birthday Wishes</h2>
+    <div class="wish-stage" id="wishStage"></div>
+    <div class="wish-progress" id="wishProgress"></div>
+  </section>
+
+  <!-- SCENE 3 — BIRTHDAY CAKE -->
+  <section class="section reveal" id="cakeSection">
+    <p class="eyebrow">A Sweet Little Ceremony</p>
+    <h2 class="title-glow">The Birthday Cake</h2>
+
+    <div class="cake-stage">
+      <div class="cake" id="cake">
+        <div class="candle c1"><span class="flame"></span></div>
+        <div class="candle c2"><span class="flame"></span></div>
+        <div class="candle c3"><span class="flame"></span></div>
+        <div class="cake-half cake-left"></div>
+        <div class="cake-half cake-right"></div>
+        <div class="cake-plate"></div>
+      </div>
+    </div>
+
+    <div class="cake-buttons">
+      <button class="glow-btn" id="lightBtn">🕯️ Light Candles</button>
+      <button class="glow-btn" id="blowBtn" disabled>💨 Blow Candles</button>
+      <button class="glow-btn" id="cutBtn" disabled>🎂 Cut Cake</button>
+    </div>
+    <p class="make-wish" id="makeWish">✨ Make a Wish ✨</p>
+  </section>
+
+  <!-- SCENE 4 — MEMORY GALLERY (all built from PHOTO_LIST in script.js) -->
+  <section class="section reveal" id="gallerySection">
+    <p class="eyebrow">Every Memory, Cherished</p>
+    <h2 class="title-glow">Memory Gallery</h2>
+
+    <!-- Auto slideshow -->
+    <div class="slideshow" id="slideshow"></div>
+    <div class="slide-dots" id="slideDots"></div>
+
+    <!-- Polaroid style -->
+    <h3 class="gallery-subtitle">Polaroid Moments</h3>
+    <div class="polaroid-row" id="polaroidRow"></div>
+
+    <!-- Masonry -->
+    <h3 class="gallery-subtitle">The Full Album</h3>
+    <div class="masonry" id="masonryGrid"></div>
+
+    <!-- Floating cards -->
+    <h3 class="gallery-subtitle">Drifting Through Memory</h3>
+    <div class="floating-cards" id="floatingCards"></div>
+
+    <p class="lightbox-hint">Tap any photo to view it full-screen ✨</p>
+  </section>
+
+  <!-- SCENE 5 — EMOTIONAL LETTER -->
+  <section class="section reveal" id="letterSection">
+    <p class="eyebrow">A Letter, Just for You</p>
+    <h2 class="title-glow">From Your Devar Ji</h2>
+    <div class="glass-card letter-card">
+      <div id="letterText"></div>
+    </div>
+  </section>
+
+  <!-- SCENE 6 — GRAND FINALE -->
+  <section class="section" id="finaleSection">
+    <h2 class="finale-title">🎉 HAPPY BIRTHDAY BHABHI JI 🎉</h2>
+    <p class="finale-name">Neha Prajapati</p>
+    <p class="finale-love">With Lots of Love ❤️<br>From Your Devar Ji</p>
+    <p class="finale-signature">Kundan Prajapati</p>
+    <p class="finale-blessing" id="finaleBlessing">"May God Bless You Always ❤️"</p>
+  </section>
+
+</main>
+
+<!-- Lightbox overlay for full-screen photo viewing -->
+<div id="lightbox">
+  <button id="lightboxClose" aria-label="Close">✕</button>
+  <img id="lightboxImg" src="" alt="Memory">
+</div>
+
+<!-- ============================================================= -->
+<!-- MUSIC — REPLACE assets/music/birthday-song.mp3 with your file -->
+<!-- ============================================================= -->
+<audio id="bgMusic" loop preload="auto" src="assets/music/birthday-song.mp3" crossorigin="anonymous"></audio>
+
+<div id="music-panel">
+  <button id="music-fab" aria-label="Play or pause music">🎵</button>
+  <canvas id="visualizer" width="70" height="28"></canvas>
+  <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.55" aria-label="Volume">
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
