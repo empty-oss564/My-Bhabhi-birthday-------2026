@@ -12,12 +12,12 @@
   /* the matching file into assets/photos/. Nothing else to touch. */
   /* ============================================================ */
   const PHOTO_LIST = [
-    'assets/photos/photo1.jpg',
-    'assets/photos/photo2.jpg',
-    'assets/photos/photo3.jpg',
-    'assets/photos/photo4.jpg',
-    'assets/photos/photo5.jpg',
-    'assets/photos/photo6.jpg'
+    'photo1.jpg',
+    'photo2.jpg',
+    'photo3.jpg',
+    'photo4.jpg',
+    'photo5.jpg',
+    'photo6.jpg'
   ];
 
   const fxLayer = document.getElementById('fx-layer');
